@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  month: 2019-05-27
+  return: 1.5
+
+two:
+  company: two
+  month: 2019-05-27
+  return: 1.5

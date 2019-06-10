@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+
+<!-- ***** Single Listing Area Start ***** -->
+<section class="dorne-single-listing-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Single Listing Content -->
+            <div class="col-12">
+                <div class="single-listing-content">
+                    <div class="listing-title">
+                        <div class="row">
+                            <div class="col-10">
+                                <h1><%= @company.name %></h1>
+                            </div>
+                            <div class="col-2">
+                                <h5><%= @company.isin %></h5>
+                            </div>
+                        </div>
+                        <h3><%= @company.sector %> - <%= @company.country %></h3>
+                    </div>
+
+                    <!-- CARBON BETA -->                    
+                    <div class="row">
+                        <div class="col-10 text-uppercase">
+                            <h5>carbon beta</h5>
+                        </div>
+                        <div class="col-2">
+                            <h5></h5>
+                        </div>
+                    </div> 
+
+                    <!-- CARBON BETA VALUE -->                        
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-success"><%= @company_data.carbon_beta %></h2>
+                        </div>                            
+                    </div> 
+                    
+                      <!-- BULLET CHART -->                        
+                      <div class="row">
+                        <div class="col-12">
+                            <div id="bullet-chart"></div>
+                        </div>                            
+                    </div> 
+
+                      <!-- RETURN HEADINGS -->                        
+                      <div class="row">
+                        <div class="col-4">
+                            <h5 class="text-uppercase">Return</h5>
+                        </div>
+                        <div class="col-4">
+                            <h5 class="text-uppercase">Return after carbon beta</h5>
+                        </div> 
+                        <div class="col-4">
+                            <h5 class="text-uppercase">Date</h5>
+                        </div>                             
+                    </div>
+
+                    <!-- RETURN VALUES -->                        
+                    <section class="single-listing-section">
+                        <div class="row">
+                            <div class="col-4">
+                                <h5 class="text-uppercase text-success">0.09</h5>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="text-uppercase text-danger"><%= @company_data.return_after_carbon_beta %></h5>
+                            </div> 
+                            <div class="col-4">
+                                <h5 class="">March 31, 2019</h5>
+                            </div>                             
+                        </div>
+                    </section>
+                    
+                    <!-- CARBON PERFORMANCE -->                        
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-uppercase">carbon performance</h5>
+                        </div>                                                         
+                    </div>
+
+                    <!-- CARBON PERFORMANCE CHARTS -->                        
+                    <div class="row">
+                            <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Category</th>
+                                <th scope="col"></th>                                    
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Industry</th>
+                                <td id="bullet-chart-1"></td>                                    
+                              </tr>
+                              <tr>
+                                <th scope="row">Country</th>
+                                <td id="bullet-chart-2"></td>                                   
+                              </tr>
+                              <tr>
+                                <th scope="row">International</th>
+                                <td id="bullet-chart-3"></td>                                   
+                              </tr>
+                            </tbody>
+                          </table>                                                                                   
+                    </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+<!-- ***** Single Listing Area End ***** -->
+
+
+

@@ -1,0 +1,38 @@
+<%# <!-- Preloader -->
+<div id="preloader">
+    <div class="dorne-load"></div>
+</div> %>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header_area" id="header">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100">
+                <nav class="h-100 navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html"><%= image_tag('logo.png') %></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                    <!-- Nav -->
+                    <div class="collapse navbar-collapse" id="dorneNav">
+                        <ul class="navbar-nav mr-auto" id="dorneMenu">
+                            <li class="nav-item active">
+                                <%= link_to("Home", {:controller => 'public', :action => 'home'}, :class => 'nav-link',) %>                                
+                            </li>
+                            <li class="nav-item active">
+                                <%= link_to("Companies", {:controller => 'companies', :action => 'index'}, :class => 'nav-link',) %>                                
+                            </li>    
+                        </ul>  
+                        <!-- Signin btn -->
+                        <div class="dorne-signin-btn">
+                            <a href="#">Sign in  or Register</a>
+                        </div>  
+                        <!-- Add listings btn -->
+                        <div class="dorne-add-listings-btn">
+                            <a href="#" class="btn dorne-btn">Upload Portfolio</a>
+                        </div>                          
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GreenBeta</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>    
+    
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>    
+
+    <%= render :partial => '/layouts/menu' %>
+    <div class="breadcumb-area height-500 bg-img bg-overlay"></div>
+    <!-- Before yield -->
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- After yield --> 
+
+    <%= render :partial => '/layouts/footer' %>  
+ 
+</body>

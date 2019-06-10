@@ -1,0 +1,7 @@
+<%= form_tag(companies_path, method: :get) do %>
+
+    <%= text_field_tag :search, params[:search], class: 'form-control company-search', placeholder: "Company name, ISIN, CUSIP or Country" %>
+    <%= submit_tag 'Search', :class => 'btn dorne-btn' %>  
+
+
+<% end %>
