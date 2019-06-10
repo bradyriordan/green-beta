@@ -69,3 +69,4 @@ require 'date'
     end
 
    puts "There are now #{CompanyYearlyDatum.count} rows in the company yearly data table"
+   
