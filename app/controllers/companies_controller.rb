@@ -6,12 +6,12 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     if params[:search]
-      @companies = Company.search(params[:search])      
+      @companies = Company.search(params[:search]).paginate(page: params[:page], per_page: 20)     
     elsif params[:term]
       @companies = Company.search(params[:term]).limit(10) 
       render json: @companies.map(&:name)    
     else
-      @companies = Company.first(10)
+      @companies = Company.all.page(params[:page]).order(:name)
     end
   end
  

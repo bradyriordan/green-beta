@@ -32,6 +32,12 @@ gem 'jquery-rails'
 # jQuery UI (As of jquery-rails 3.0 jquery ui is not included)
 gem 'jquery-ui-rails'
 
+# Use will_paginate for pagination
+gem 'will_paginate', '~> 3.1.0'
+
+# bootstrap styling for pagination
+gem 'will_paginate-bootstrap4'
+
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
