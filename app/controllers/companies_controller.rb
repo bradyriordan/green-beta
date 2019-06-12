@@ -20,6 +20,9 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @company_data = CompanyYearlyDatum.most_recent(@company.id)
+    @sector_average = Company.sector_average(@company.sector).to_f
+    @country_average = Company.country_average(@company.country).to_f
+    @international_average = Company.international_average.to_f
   end
 
   # GET /companies/new
