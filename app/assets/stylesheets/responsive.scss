@@ -45,7 +45,15 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .navbar-toggler {
+    .faq-content{
+        margin: 100px 0px 0px 0px;
+    }
+
+    .faq-content-last{
+        margin-bottom: 100px;
+    }
+
+   .navbar-toggler {
         border: 2px solid #fff;
         color: #fff;
         margin: 37px 0;
@@ -57,7 +65,7 @@
     }
     #dorneNav {
         padding: 30px;
-        background-color: #341a79;
+        background-color: #267a69;
         box-shadow: 1px 9px 10px rgba(255, 255, 255, 0.15);
         border-radius: 0 0 3px 3px
     }
@@ -141,6 +149,14 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .faq-content{
+        margin: 100px 0px 0px 0px;
+    }
+
+    .faq-content-last{
+        margin-bottom: 100px;
+    }
+    
     .header_area {
         padding: 0;
     }
@@ -159,7 +175,7 @@
     }
     #dorneNav {
         padding: 15px;
-        background-color: #341a79;
+        background-color: #267a69;
         box-shadow: 1px 9px 10px rgba(255, 255, 255, 0.15);
         border-radius: 0 0 3px 3px
     }

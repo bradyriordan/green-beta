@@ -20,6 +20,7 @@
  *= require owl.carousel.min
  *= require pe-icon-7-stroke
  *= require jquery-ui
+ *= require responsive
 
 
  *= require_self
