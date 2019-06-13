@@ -9,24 +9,31 @@
 require 'csv'
 require 'date'
 
+# monthlydata = []
+# columns = [:isin, :cusip, :name, :country, :sector]
+# CSV.foreach(Rails.root.join('lib', 'seeds', 'na_firms.csv'), headers: true) do |row|  
+#     companies << {isin: row['isin'], cusip: row['cusip'], name: row['name'], country: row['businesscountry'], sector: row['sector']}  
+# end
+# Company.import columns, companies, validate: true, validate_uniqueness: true
 
-    csv_text = File.read(Rails.root.join('lib', 'seeds', 'na_firms.csv'))
-    csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-    csv.each do |row|
-        
-        next if Company.exists?(:isin => row['isin'])    
-        t = Company.new              
-            t.isin = row['isin']
-            t.cusip = row['cusip']
-            t.name = row['name']
-            t.country = row['businesscountry']
-            t.sector = row['sector']    
-            t.save
-            puts "company #{t.name} saved"
-        
-    end
 
-   puts "There are now #{Company.count} rows in the company table"
+#     csv_text = File.read(Rails.root.join('lib', 'seeds', 'na_firms.csv'))
+#     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+#     csv.each do |row|
+        
+#         next if Company.exists?(:isin => row['isin'])    
+#         t = Company.new              
+#             t.isin = row['isin']
+#             t.cusip = row['cusip']
+#             t.name = row['name']
+#             t.country = row['businesscountry']
+#             t.sector = row['sector']    
+#             t.save
+#             puts "company #{t.name} saved"
+        
+#     end
+
+#    puts "There are now #{Company.count} rows in the company table"
 
 
 #     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -45,24 +52,24 @@ require 'date'
 
 #    puts "There are now #{CompanyMonthlyDatum.count} rows in the company monthly data table"
 
-#     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-#     csv.each do |row|
+CSV.foreach(Rails.root.join('lib', 'seeds', 'na_firms.csv'), headers: true) do |row|     
 
-#         company = Company.where(:isin => row['isin'])           
-#         year = row['year'].to_i
-#         date = Date.new(year,1,1)
+        year = row['year'].to_i
+        date = Date.new(year,1,1)
+        company = Company.where(:isin => row['isin'])
 
-#         t = CompanyYearlyDatum.new    
-#         t.company_id = company[0].id
-#         t.year = date
-#         t.return_after_carbon_beta = row['bmg_cons']
-#         t.se_return_after_carbon_beta = row['bmg_se_cons']
-#         t.carbon_beta = row['bmg_yearly']
-#         t.se_carbon_beta = row['bmg_se_yearly']          
-#         t.save
-#         puts "company yearly data #{t.year} saved for #{company[0].name}"            
+        next if CompanyYearlyDatum.exists?(:company_id => company[0].id, :year => date)
+
+        t = CompanyYearlyDatum.new    
+        t.company_id = company[0].id
+        t.year = date
+        t.return_after_carbon_beta = row['bmg_cons']
+        t.se_return_after_carbon_beta = row['bmg_se_cons']
+        t.carbon_beta = row['bmg_yearly']
+        t.se_carbon_beta = row['bmg_se_yearly']          
+        t.save          
         
-#     end
+    end
 
-#    puts "There are now #{CompanyYearlyDatum.count} rows in the company yearly data table"
+   
    
