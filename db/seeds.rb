@@ -10,7 +10,7 @@ require 'csv'
 require 'date'
 require 'open-uri'
 
-    csv_text = open('http://bradyriordan.com/dorne_green_beta/carbon_betas.csv')
+    csv_text = File.read(Rails.root.join('lib', 'seeds', 'na_firms.csv'))
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
         
