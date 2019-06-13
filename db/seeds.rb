@@ -8,13 +8,14 @@
 
 require 'csv'
 require 'date'
-require 'open-uri'
+
 
     csv_text = File.read(Rails.root.join('lib', 'seeds', 'na_firms.csv'))
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
         
-            t = Company.new    
+        next if Company.exists?(:isin => row['isin'])    
+        t = Company.new              
             t.isin = row['isin']
             t.cusip = row['cusip']
             t.name = row['name']
@@ -44,24 +45,24 @@ require 'open-uri'
 
 #    puts "There are now #{CompanyMonthlyDatum.count} rows in the company monthly data table"
 
-    csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-    csv.each do |row|
+#     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+#     csv.each do |row|
 
-        company = Company.where(:isin => row['isin'])           
-        year = row['year'].to_i
-        date = Date.new(year,1,1)
+#         company = Company.where(:isin => row['isin'])           
+#         year = row['year'].to_i
+#         date = Date.new(year,1,1)
 
-        t = CompanyYearlyDatum.new    
-        t.company_id = company[0].id
-        t.year = date
-        t.return_after_carbon_beta = row['bmg_cons']
-        t.se_return_after_carbon_beta = row['bmg_se_cons']
-        t.carbon_beta = row['bmg_yearly']
-        t.se_carbon_beta = row['bmg_se_yearly']          
-        t.save
-        puts "company yearly data #{t.year} saved for #{company[0].name}"            
+#         t = CompanyYearlyDatum.new    
+#         t.company_id = company[0].id
+#         t.year = date
+#         t.return_after_carbon_beta = row['bmg_cons']
+#         t.se_return_after_carbon_beta = row['bmg_se_cons']
+#         t.carbon_beta = row['bmg_yearly']
+#         t.se_carbon_beta = row['bmg_se_yearly']          
+#         t.save
+#         puts "company yearly data #{t.year} saved for #{company[0].name}"            
         
-    end
+#     end
 
-   puts "There are now #{CompanyYearlyDatum.count} rows in the company yearly data table"
+#    puts "There are now #{CompanyYearlyDatum.count} rows in the company yearly data table"
    
