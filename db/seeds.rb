@@ -8,8 +8,9 @@
 
 require 'csv'
 require 'date'
+require 'open-uri'
 
-    csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
+    csv_text = open('http://bradyriordan.com/dorne_green_beta/carbon_betas.csv')
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
         
@@ -27,28 +28,22 @@ require 'date'
    puts "There are now #{Company.count} rows in the company table"
 
 
-    csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
-    csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-    csv.each do |row|
+#     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+#     csv.each do |row|
         
-            company = Company.where(:isin => row['isin'])
-            d = Date.parse(row['month'])
-            t = CompanyMonthlyDatum.new    
-            t.company_id = company[0].id
-            t.month = d
-            t.return = row['excess_return']             
-            t.save
-            puts "company monthly data #{t.month} saved"            
+#             company = Company.where(:isin => row['isin'])
+#             d = Date.parse(row['month'])
+#             t = CompanyMonthlyDatum.new    
+#             t.company_id = company[0].id
+#             t.month = d
+#             t.return = row['excess_return']             
+#             t.save
+#             puts "company monthly data #{t.month} saved"            
         
-    end
+#     end
 
-   puts "There are now #{CompanyMonthlyDatum.count} rows in the company monthly data table"
+#    puts "There are now #{CompanyMonthlyDatum.count} rows in the company monthly data table"
 
-
-require 'csv'
-require 'date'
-
-    csv_text = File.read(Rails.root.join('lib', 'seeds', 'seed.csv'))
     csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
     csv.each do |row|
 
