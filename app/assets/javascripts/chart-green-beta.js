@@ -139,7 +139,7 @@ $(document).ready(function () {
         options: {
             bezierCurve: false,            
             scales: { 
-                xAxes: [{
+                xAxes: [{                                       
                     ticks: {
                         callback: function(tick, index, array) {
                             if (index % 14 == 0 ){
@@ -150,6 +150,10 @@ $(document).ready(function () {
                     }
                 }],
                 yAxes: [{
+                    scaleLabel: {
+                        labelString: "% Return",
+                        display: true
+                    }, 
                     ticks: {
                         beginAtZero: true
                     }
