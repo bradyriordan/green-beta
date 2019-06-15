@@ -142,8 +142,7 @@ $(document).ready(function () {
                 xAxes: [{                                       
                     ticks: {
                         callback: function(tick, index, array) {
-                            if (index % 14 == 0 ){
-                                console.log(index);
+                            if (index % 14 == 0 ){                                
                                 return tick
                             }                           
                         }

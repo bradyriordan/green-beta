@@ -1,3 +1,7 @@
+$(window).resize(function(){
+    drawRegionsMap();    
+});
+
 google.charts.load('current', {
     'packages': ['geochart'],
     // Note: you will need to get a mapsApiKey for your project.
