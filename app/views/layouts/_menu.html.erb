@@ -23,7 +23,11 @@
                         </ul>  
                         <!-- Signin btn -->
                         <div class="dorne-signin-btn">
-                            <a href="#">Sign in  or Register</a>
+                            <% if user_signed_in? %>                                
+                                <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+                            <% else %>                                
+                                <%= link_to('Sign in  or Register', new_user_session_path) %> 
+                            <% end %>                            
                         </div>                                                                      
                     </div>
                 </nav>

@@ -1,26 +1,68 @@
 <!-- ***** Welcome Area Start ***** -->
 <section class="dorne-welcome-area bg-img bg-overlay">
     <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center">
-            <div class="col-12 col-md-10">
-                <div class="hero-content">
-                    <h2>CARBON RISK DATA</h2>
-                    <h4>Carbon Betas on over 37,000 assets</h4>
-                </div>
-                <!-- Hero Search Form -->
-                <div class="hero-search-form">  
-                    <!-- Tabs Content -->
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                            <h6>Search our data set</h6>
 
-                            <%= render :partial => 'search' %>  
-                            
-                        </div>                          
+        <% if user_signed_in? %>
+
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-10">
+                    <div class="hero-content">
+                        <h2>CARBON RISK DATA</h2>
+                        <h4>Carbon Betas on over 37,000 assets</h4>
+                    </div>
+                    <!-- Hero Search Form -->
+                    <div class="hero-search-form">  
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                                <h6>Search our data set</h6>
+
+                                <%= render :partial => 'search' %>  
+                                
+                            </div>                          
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>   
+
+        <% else %>
+
+            <div class="row h-100 align-items-center justify-content-between d-flex">
+                <div class="col-12 col-md-5">
+                    <div class="hero-content">
+                        <h2>CARBON RISK DATA</h2>
+                        <h4>Carbon Betas on over 37,000 assets</h4>
+                    </div>
+                    <!-- Hero Search Form -->
+                    <div class="hero-search-form">  
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                                <h3>Search our data set</h3>                                 
+                                 <%= link_to('Sign in or Register', new_user_session_path, :class => 'btn dorne-btn') %>                                
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="card dorne-card">
+                        <div class="card-header dorne-card-header">
+                            Daily Carbon Beta
+                        </div>                        
+                        <div class="card-body">
+                            <h2 class="card-title">Apple Inc</h2>
+                            <h2 class="card-title">-0.23</h2>
+                            <p class="card-text"></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Green Betas are calculated using industry standard ESG databases and state-of-the-art statistical models to isolate the carbon related components of returns.</li>                            
+                        </ul>                        
+                        </div>
+                    </div>
+            </div>   
+
+
+        <% end %>
     </div>
     <!-- Hero Social Btn -->
     <div class="hero-social-btn">
