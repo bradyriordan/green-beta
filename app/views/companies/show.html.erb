@@ -11,67 +11,54 @@
                 <div class="single-listing-content">
                     <div class="listing-title">
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-8">
                                 <h1><%= @company.name %></h1>
                             </div>
-                            <div class="col-2">
-                                <h5><%= @company.isin %></h5>
+                            <div class="col-4">
+                                <h5><span class="font-weight-light">ISIN:</span> <%= @company.isin %></h5>
+                                <h5><span class="font-weight-light">CUSIP:</span> <%= @company.cusip %></h5>
                             </div>
                         </div>
-                        <h3><%= @company.sector %> - <%= @company.country %></h3>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <h3><%= @company.sector %> - <%= @company.country %></h3>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- CARBON BETA -->                    
                     <div class="row">
-                        <div class="col-10 text-uppercase">
+                        <div class="col-8 text-uppercase">
                             <h5>carbon beta</h5>
+                            <% if (@company_data.carbon_beta.round(2) * - 1).between?(-4, -2) %>
+                                <div class="carbon-beta-box very-brown"></div>
+                                <h2><%= @company_data.carbon_beta.round(2) * - 1 %></h2>
+                            <% elsif (@company_data.carbon_beta.round(2) * - 1).between?(-2, 0) %>
+                                <div class="carbon-beta-box brown"></div>
+                                <h2><%= @company_data.carbon_beta.round(2) * - 1 %></h2>
+                            <% elsif (@company_data.carbon_beta.round(2) * - 1).between?(0, 2) %>
+                                <div class="carbon-beta-box green"></div>
+                                <h2><%= @company_data.carbon_beta.round(2) * - 1 %></h2>
+                            <% elsif (@company_data.carbon_beta.round(2) * - 1).between?(2, 4) %>
+                                <div class="carbon-beta-box very-green"></div>
+                                <h2><%= @company_data.carbon_beta.round(2) * - 1 %></h2>
+                            <% else %>
+                                <h2 class=""><%= @company_data.carbon_beta.round(2) * - 1 %></h2>
+                            <% end %>                 
+                            
                         </div>
-                        <div class="col-2">
-                            <h5></h5>
+                        <div class="col-4">                            
+                            <h5><span class="text-uppercase font-weight-light">Date:</span> March 31, 2019</h5>   
                         </div>
-                    </div> 
-
-                    <!-- CARBON BETA VALUE -->                        
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="text-success"><%= @company_data.carbon_beta.round(2) %></h2>                                                     
-                        </div>                            
                     </div> 
                     
                       <!-- BULLET CHART -->                        
-                      <div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div id="bullet-chart"></div>
                         </div>                            
-                    </div> 
-
-                      <!-- RETURN HEADINGS -->                        
-                      <div class="row">
-                        <div class="col-4">
-                            <h5 class="text-uppercase">Return</h5>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="text-uppercase">Return after carbon beta</h5>
-                        </div> 
-                        <div class="col-4">
-                            <h5 class="text-uppercase">Date</h5>
-                        </div>                             
-                    </div>
-
-                    <!-- RETURN VALUES -->                        
-                    <section class="single-listing-section">
-                        <div class="row">
-                            <div class="col-4">
-                                <h5 class="text-uppercase text-success">0.09</h5>
-                            </div>
-                            <div class="col-4">
-                                <h5 class="text-uppercase text-danger"><%= @company_data.return_after_carbon_beta.round(2) %></h5>
-                            </div> 
-                            <div class="col-4">
-                                <h5 class="">March 31, 2019</h5>
-                            </div>                             
-                        </div>
-                    </section>
+                    </div>     
                     
                     <!-- CARBON PERFORMANCE -->                        
                     <div class="row">
@@ -85,7 +72,7 @@
                             <table class="table">
                             <thead>
                               <tr>
-                                <th scope="col">Category</th>
+                                <th scope="col"></th>
                                 <th scope="col"></th>                                    
                               </tr>
                             </thead>
@@ -128,7 +115,7 @@ var chart = d3.bullet()
 
 var carbonbeta =  
 [
-    {"title":"","subtitle":"","ranges":[1,2,3,4],"measures":[<%= ((@company_data.carbon_beta + 4) / 2).round(2) %>],"markers":[0]}                  
+    {"title":"","subtitle":"","ranges":[1,2,3,4],"measures":[<%= (((@company_data.carbon_beta * -1) + 4) / 2).round(3) %>],"markers":[0]}                  
 ];       
 
 
@@ -170,7 +157,7 @@ var chart_1 = d3.bullet()
 
 var carbonbeta_1 =  
 [
-    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= ((@company_data.carbon_beta + 4) / 2).round(2) %>],"markers":[<%= ((@sector_average + 4) / 2).round(1) %>]}                              
+    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= (((@company_data.carbon_beta * -1) + 4) / 2).round(3) %>],"markers":[<%= (((@sector_average * -1) + 4) / 2).round(3) %>]}                              
 ];       
 
 
@@ -212,7 +199,7 @@ var chart_2 = d3.bullet()
 
 var carbonbeta_2 =  
 [
-    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= ((@company_data.carbon_beta + 4) / 2).round(2) %>],"markers":[<%= ((@country_average + 4) / 2).round(1) %>]}                              
+    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= (((@company_data.carbon_beta * -1) + 4) / 2).round(3) %>],"markers":[<%= (((@country_average * -1) + 4) / 2).round(3) %>]}                              
 ];       
 
 
@@ -254,7 +241,7 @@ var chart_3 = d3.bullet()
 
 var carbonbeta_3 =  
 [
-    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= ((@company_data.carbon_beta + 4) / 2).round(2) %>],"markers":[<%= ((@international_average + 4) / 2).round(1) %>]}                            
+    {"title":"Industry","subtitle":"","ranges":[1,2,3,4],"measures":[<%= (((@company_data.carbon_beta * -1) + 4) / 2).round(3) %>],"markers":[<%= (((@international_average * -1)  + 4) / 2).round(3) %>]}                            
 ];       
 
 
