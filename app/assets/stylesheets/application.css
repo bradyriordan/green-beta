@@ -15,7 +15,8 @@
  *= require animate
  *= require bootstrap.min
  *= require style
- *= require font-awesome.min
+ *= require font-awesome
+ * require font-awesome.min
  *= require magnific-popup
  *= require owl.carousel.min
  *= require pe-icon-7-stroke
