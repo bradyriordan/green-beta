@@ -3,7 +3,8 @@ class PublicController < ApplicationController
   layout 'home'
 
   def home
-    @companies = Company.all.count
+    @companies = Company.count
+    @contact = Contact.new
   end
 
   def contact    

@@ -16,12 +16,19 @@
   <body>
     <%= render :partial => '/layouts/menu' %>
 
+    <!-- Flash hash -->
+    <% if !flash[:notice].blank? %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <!-- Before yield -->
     
       <%= yield %>
     
     <!-- After yield --> 
 
-    <%= render :partial => '/layouts/footer' %>  
+    <%= render :partial => '/layouts/footer', :locals => {@contact => :f} %>  
   </body>
 </html>

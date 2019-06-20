@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
     else
       @companies = Company.all.paginate(page: params[:page], per_page: 15).order(:name)
     end
+    @contact = Contact.new
   end
  
   # GET /companies/1
@@ -24,6 +25,7 @@ class CompaniesController < ApplicationController
     @sector_average = Company.sector_average(@company.sector).to_f
     @country_average = Company.country_average(@company.country).to_f
     @international_average = Company.international_average.to_f
+    @contact = Contact.new
   end
 
   # GET /companies/new

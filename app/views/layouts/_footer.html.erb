@@ -6,25 +6,44 @@
                 <div class="contact-form-title">
                     <h6>Get in touch</h6>
                 </div>
-                    <form action="#">
-                        <div class="row ">
-                            <div class="col-12 col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name">
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <input type="email" name="email" class="form-control" placeholder="Email Address">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="subject" class="form-control" placeholder="Subject">
-                            </div>
-                            <div class="col-12">
-                                <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="Your Message"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn dorne-btn">Send</button>
-                            </div>
+                
+                <div class="col contact-success">
+                    <div class="alert alert-success" role="alert">
+                        Thanks for reaching out! We will get back to you soon!
+                    </div>    
+                </div>
+
+                <div class="col contact-failure">
+                    <div class="alert alert-danger" role="alert">
+                        Please fill in all the required fields!
+                    </div>    
+                </div>
+                
+                <!-- Contact Form -->  
+                <%= form_for @contact, url: contacts_path, remote: true do |f| %>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <%= f.text_field :name, class: 'form-control', placeholder: 'name' %>
                         </div>
-                    </form>
+                        
+                        <div class="col-12 col-md-6">
+                            <%= f.text_field :email, class: 'form-control', placeholder: 'email' %>
+                        </div>
+
+                        <div class="col-12">
+                            <%= f.text_field :subject, class: 'form-control', placeholder: 'subject' %>
+                        </div>
+
+                        <div class="col-12">
+                            <%= f.text_area :message, class: 'form-control', placeholder: 'message', cols: 30, rows: 10 %>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <%= f.submit "Send", class: 'btn dorne-btn' %>
+                        </div>
+                    </div>
+                <% end %>  
+                       
             </div>
         </div>
         <div class="row">
@@ -32,7 +51,7 @@
                 <div class="footer-text">
                     <p>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright 2019&copy; All rights reserved
+                        Copyright 2019 &copy; All rights reserved
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

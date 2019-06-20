@@ -27,12 +27,11 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
+      if @contact.save        
+        format.js { render 'contact_success'}        
+        ContactsMailer.contact_message(@contact).deliver
       else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
+        format.js { render 'contact_failure'}        
       end
     end
   end
