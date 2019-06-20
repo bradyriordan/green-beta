@@ -68,6 +68,14 @@ Rails.application.configure do
     enable_starttls_auto: true 
   }
 
+  #reCAPTCHA
+  Recaptcha.configure do |config|
+    config.site_key  = '6LcKxakUAAAAANoreDIPc6Mc3BformryFljjatXP'
+    config.secret_key = '6LcKxakUAAAAAEbK_CdXlT_C-cz3LtwiIADxAGJt'
+    # Uncomment the following line if you are using a proxy server:
+    # config.proxy = 'http://myproxy.com.au:8080'
+  end
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

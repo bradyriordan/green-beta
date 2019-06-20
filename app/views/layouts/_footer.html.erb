@@ -38,6 +38,10 @@
                             <%= f.text_area :message, class: 'form-control', placeholder: 'message', cols: 30, rows: 10 %>
                         </div>
 
+                        <div class="col-12">
+                            <%= recaptcha_tags %><br>
+                        </div>
+
                         <div class="col-12 col-md-6">
                             <%= f.submit "Send", class: 'btn dorne-btn' %>
                         </div>

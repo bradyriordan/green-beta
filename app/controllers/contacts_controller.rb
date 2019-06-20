@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
-      if @contact.save        
+      if @contact.save && verify_recaptcha(model: @contact)       
         format.js { render 'contact_success'}        
         ContactsMailer.contact_message(@contact).deliver
       else

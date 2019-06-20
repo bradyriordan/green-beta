@@ -106,7 +106,15 @@ Rails.application.configure do
 	  :enable_starttls_auto => true,
 	  :authentication       => :plain,
 	  :domain               => "greenbeta.ca"
-	}
+  }
+  
+    #reCAPTCHA
+    Recaptcha.configure do |config|
+      config.site_key  = '6LcexakUAAAAAD4r4STcI771PmaQQkkVw1bJnWuF'
+      config.secret_key = '6LcexakUAAAAAA-0C23t_nJGXWqLzyFVhupKomAr'
+      # Uncomment the following line if you are using a proxy server:
+      # config.proxy = 'http://myproxy.com.au:8080'
+    end
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
