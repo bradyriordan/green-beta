@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h2 class="card-title"><%= @company.name %></h2>
                             <h4 class="card-title"><%= @company.country %> - <%= @company.sector %></h4>
-                            <h2 class="card-title font-weight-bold"><%= @company_data.first.carbon_beta.round(2) * - 1 %></h2>                            
+                            <h2 class="card-title font-weight-bold"><%= @company_data.carbon_beta.round(2) * - 1 %></h2>                            
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ISIN: <%= @company.isin %></li>
