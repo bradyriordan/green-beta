@@ -50,12 +50,13 @@
                             Daily Carbon Beta
                         </div>                        
                         <div class="card-body">
-                            <h2 class="card-title">2U Inc</h2>
-                            <h2 class="card-title font-weight-bold">-1.11</h2>                            
+                            <h2 class="card-title"><%= @company.name %></h2>
+                            <h4 class="card-title"><%= @company.country %> - <%= @company.sector %></h4>
+                            <h2 class="card-title font-weight-bold"><%= @company_data.first.carbon_beta.round(2) * - 1 %></h2>                            
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ISIN: US90214J1016</li>
-                            <li class="list-group-item">CUSIP: 90214J101</li>
+                            <li class="list-group-item">ISIN: <%= @company.isin %></li>
+                            <li class="list-group-item">CUSIP: <%= @company.cusip %></li>
                             <li class="list-group-item font-weight-light">Green Betas are calculated using industry standard ESG databases and state-of-the-art statistical models to isolate the carbon related components of returns.</li>                            
                         </ul>                        
                         </div>
