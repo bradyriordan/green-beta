@@ -9,7 +9,7 @@
 require 'csv'
 require 'date'
 
-CSV.foreach(Rails.root.join('lib', 'seeds', 'us_firms.csv'), headers: true) do |row|        
+CSV.foreach(Rails.root.join('lib', 'seeds', 'int_firms.csv'), headers: true) do |row|        
          
     t = Company.new              
     t.isin = row['isin']
@@ -40,7 +40,7 @@ puts "There are now #{Company.count} rows in the company table"
 
 #    puts "There are now #{CompanyMonthlyDatum.count} rows in the company monthly data table"
 
-CSV.foreach(Rails.root.join('lib', 'seeds', 'us_yearly_data.csv'), headers: true) do |row|     
+CSV.foreach(Rails.root.join('lib', 'seeds', 'int_firms.csv'), headers: true) do |row|     
 
     year = row['year'].to_i
     date = Date.new(year,1,1)
@@ -50,9 +50,7 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'us_yearly_data.csv'), headers: true
 
     t = CompanyYearlyDatum.new    
     t.company_id = company[0].id
-    t.year = date
-    t.return_after_carbon_beta = row['bmg_cons']
-    t.se_return_after_carbon_beta = row['bmg_se_cons']
+    t.year = date    
     t.carbon_beta = row['bmg_yearly']
     t.se_carbon_beta = row['bmg_se_yearly']          
     t.save          
