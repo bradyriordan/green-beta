@@ -16,7 +16,7 @@ $(document).ready(function () {
                 '2017'],
             datasets: [{ 
                 lineTension: 0,
-                label: 'Green minus brown portfolio returns',
+                label: 'Green index returns',
                 data: [
                     1.38682,
                     0.23149,

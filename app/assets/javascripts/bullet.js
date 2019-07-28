@@ -67,7 +67,7 @@
               .attr("class", function(d, i) { return "measure s" + i; })
               .attr("width", w0)
               .attr("height", height / 3)
-              .attr("x", reverse ? x0 : 0)
+              .attr("x", 20)
               .attr("y", height / 3)
             .transition()
               .duration(duration)

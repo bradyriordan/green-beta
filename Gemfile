@@ -44,6 +44,9 @@ gem 'activerecord-import'
 # Use devise for user management
 gem 'devise'
 
+# rails-twitter
+gem 'twitter'
+
 # font awesome for icons
 gem "font-awesome-rails"
 
