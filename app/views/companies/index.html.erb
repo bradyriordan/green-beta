@@ -27,7 +27,8 @@
             <th>Isin</th>
             <th>Cusip</th>          
             <th>Country</th>
-            <th>Industry</th>          
+            <th>Industry</th>
+            <th>Carbon Beta</th>          
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,7 @@
               <td><%= company.cusip %></td>              
               <td><%= company.country %></td>
               <td><%= company.sector%></td>
+              <td> <%= @company_data.carbon_beta.round(2) * - 1 %></td>
             </tr>
           <% end %>
         </tbody>
