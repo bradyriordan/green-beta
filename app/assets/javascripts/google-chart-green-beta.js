@@ -13,6 +13,8 @@ google.charts.setOnLoadCallback(drawRegionsMap);
 function drawRegionsMap() {
     var data = google.visualization.arrayToDataTable([
         ["Country", "Carbon Beta"],
+        ["Minus 1",(1 * -1)],
+        ["Plus 1",(-1 * -1)],
         ["United Arab Emirates",(-0.041801940093476 * -1)],
         ["China",(0.31329749905504 * -1)],
         ["United States",(0.35143036524023 * -1)],
@@ -87,7 +89,8 @@ function drawRegionsMap() {
     ]);
 
     var options = {
-        colorAxis: { colors: ['#c2b0a2', '#c9c0b9', '#d3f5bc', '#bdfd92'] }
+        sizeAxis: { minValue: -1, maxValue: 1 },
+        colorAxis: { colors: ['#9b795f', '#b68c6c', '#a9dd85', '#7fc94c'] }
     };
 
     var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
