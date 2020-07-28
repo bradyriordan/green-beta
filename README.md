@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+GreenBeta, a web application built with Ruby on Rails, visualizes carbon data for over 37,000 international firms. Firms can use carbon beta to understand their own carbon risk, regulators to gauge the impact of policy changes, and investors to directly manage carbon risk in their portfolios without hurting performance or preferences.
